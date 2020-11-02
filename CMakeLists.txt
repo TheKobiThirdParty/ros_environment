@@ -5,7 +5,11 @@ find_package(catkin REQUIRED)
 catkin_package()
 
 set(ROS_VERSION "1")
-set(ROS_DISTRO "kinetic")
+if (PLATFORM STREQUAL "X64")
+  set(ROS_DISTRO "melodic")
+else()
+  set(ROS_DISTRO "kinetic")
+endif()
 
 # allow overriding the Python version
 if(DEFINED ENV{ROS_PYTHON_VERSION})
